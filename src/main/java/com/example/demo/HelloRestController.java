@@ -8,7 +8,7 @@ public class HelloRestController {
 	
 	@RequestMapping("/")
 	public String index() {
-		
+		// hello world를 찍어보자! test
 		return "hello world";
 	}
 }
