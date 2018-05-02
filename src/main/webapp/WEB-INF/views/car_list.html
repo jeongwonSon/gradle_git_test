@@ -1,15 +1,19 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  layout:decorator="layout/default">
 <head>
 <meta charset="UTF-8">
 <title>차 리스트 확인</title>
 </head>
 <body>
-  <button onclick="main()">메인</button><br/>
-  <th:block th:each="car:${carList}">
-    차 색깔은 <span th:text="${car.color}"></span>
-    문 개수는 <span th:text="${car.door}"></span><br/>
-  </th:block>
+  <section layout:fragment="content">
+    <button onclick="main()">메인</button><br/>
+    <th:block th:each="car:${carList}">
+      차 색깔은 <span th:text="${car.color}"></span>
+      문 개수는 <span th:text="${car.door}"></span><br/>
+    </th:block>
+  </section>
 </body>
 <script type="text/javascript">
 function main(){

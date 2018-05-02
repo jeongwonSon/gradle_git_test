@@ -8,6 +8,8 @@ import org.thymeleaf.spring5.templateresolver.SpringResourceTemplateResolver;
 import org.thymeleaf.spring5.view.ThymeleafViewResolver;
 import org.thymeleaf.templateresolver.ITemplateResolver;
 
+import nz.net.ultraq.thymeleaf.LayoutDialect;
+
 /**
  *  (참고)
  *  http://donzbox.tistory.com/593 
@@ -33,6 +35,7 @@ public class ThymeleafConfig {
     public SpringTemplateEngine templateEngine(){
         SpringTemplateEngine templateEngine = new SpringTemplateEngine();
         templateEngine.setTemplateResolver(templateResolver());
+        templateEngine.addDialect(new LayoutDialect());	// 해당 설정을 해줘야 thymeleafLayoutdialect 사용 가능!
         return templateEngine;
     }
  
