@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head th:replace="fragments/config :: configFragment">
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+  <header th:replace="fragments/header :: headerFragment">
+    <p>This is default header area for default layout</p>
+  </header>
+  <section id="content" layout:fragment="content">
+    <p>내용</p>
+    <p>This is default main content with default layout</p>
+  </section>
+  <footer th:replace="fragments/footer :: footerFragment">
+    <p>This is default footer area for default layout</p>
+  </footer>
+</body>
+</html>

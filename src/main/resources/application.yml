@@ -1,3 +1,9 @@
 spring:
   thymeleaf:
     cache: false
+    template-resolver-order: 1
+
+#  mvc:
+#    view:
+#      prefix: src/main/webapp/WEB-INF/views/
+#      suffix: .html
