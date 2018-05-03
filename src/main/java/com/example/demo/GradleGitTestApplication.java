@@ -1,10 +1,15 @@
 package com.example.demo;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cache.annotation.EnableCaching;
 
 @SpringBootApplication
 public class GradleGitTestApplication {
+	
+	private static Logger logger = LoggerFactory.getLogger(GradleGitTestApplication.class);
 	
 	/**
 	 * application.java는 package root에 있어야 함

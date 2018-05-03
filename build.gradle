@@ -31,6 +31,8 @@ configurations {
 
 dependencies {
 	compile('org.springframework.boot:spring-boot-starter-aop')
+	// 캐시관련 설정을 편리하게 지원해주는 패키지(cacheManager, EhCacheManagerFactoryBean 등의 bean 생성을 직접 안해도 됨)
+	compile('org.springframework.boot:spring-boot-starter-cache')
 //	compile('org.springframework.boot:spring-boot-starter-security')
 	compile('org.springframework.boot:spring-boot-starter-web')
 	compile ('org.springframework.boot:spring-boot-starter-thymeleaf')
@@ -45,4 +47,7 @@ dependencies {
 	
 	// thymeleaf layout 설정
 	compile group: 'nz.net.ultraq.thymeleaf', name: 'thymeleaf-layout-dialect', version: '2.1.2'
+	
+	// ehcache 설정
+	compile group: 'net.sf.ehcache', name: 'ehcache', version: '2.10.3'
 }

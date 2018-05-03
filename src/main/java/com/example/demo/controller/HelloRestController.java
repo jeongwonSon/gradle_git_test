@@ -8,7 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.example.demo.dao.Car;
+import com.example.demo.domain.Car;
 
 @Controller
 public class HelloRestController {
