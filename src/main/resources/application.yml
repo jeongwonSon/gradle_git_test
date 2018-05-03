@@ -1,7 +1,15 @@
+# ThymeleafConfig에 이미 설정해놓음
+
 spring:
-  thymeleaf:
-    cache: false
-    template-resolver-order: 1
+  banner:
+    location: banner.txt
+
+
+
+#spring:
+#  thymeleaf:
+#    cache: false
+#    template-resolver-order: 1
 
 #  mvc:
 #    view:

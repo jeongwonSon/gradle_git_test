@@ -44,6 +44,7 @@ public class ThymeleafConfig {
         ThymeleafViewResolver viewResolver = new ThymeleafViewResolver() ;
         viewResolver.setTemplateEngine(templateEngine());
         viewResolver.setOrder(1);
+        viewResolver.setCache(false);
         viewResolver.setCharacterEncoding("UTF-8");	// viewResolver에 UTF-8 처리를 하지 않으면 한글이 깨져서 나옴!
         return viewResolver;
     }
