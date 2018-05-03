@@ -29,7 +29,7 @@ public class HelloRestController {
 		car.setDoor(4);
 		
 		model.addAttribute("car", car);
-		return "hello";
+		return "sample/hello";
 	}
 	
 	@RequestMapping("/getCarList")
@@ -47,6 +47,6 @@ public class HelloRestController {
 		carList.add(car2);
 		
 		model.addAttribute("carList", carList);
-		return "car_list";
+		return "sample/car_list";
 	}
 }

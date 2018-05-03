@@ -50,4 +50,13 @@ dependencies {
 	
 	// ehcache 설정
 	compile group: 'net.sf.ehcache', name: 'ehcache', version: '2.10.3'
+	
+	// bootstrap 설정
+	compile 'org.webjars.bower:bootstrap:4.1.1'
+	
+	// jquery 설정
+	compile 'org.webjars.bower:jquery:3.3.1'
+	
+	// clean-blog theme
+	compile 'org.webjars.bower:origoni-startbootstrap-clean-blog:1.0.3'
 }

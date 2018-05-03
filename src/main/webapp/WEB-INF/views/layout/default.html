@@ -3,6 +3,8 @@
   xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 <head th:replace="fragments/config :: configFragment">
 <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Insert title here</title>
 </head>
 <body>
@@ -10,7 +12,6 @@
     <p>This is default header area for default layout</p>
   </header>
   <section id="content" layout:fragment="content">
-    <p>내용</p>
     <p>This is default main content with default layout</p>
   </section>
   <footer th:replace="fragments/footer :: footerFragment">

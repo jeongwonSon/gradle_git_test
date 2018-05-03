@@ -1,6 +1,22 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-  <header th:fragment="headerFragment">
-    <p>header지!</p>
-  </header>
+<header th:fragment="headerFragment">
+  <p>header(헤더)</p>
+  <button onclick="hello()">hello</button>
+  <button onclick="main()">main</button>
+  <button onclick="carList()">carList</button>
+  <script type="text/javascript">
+    function hello(){
+      location.href = "/hello";
+    }
+    
+    function main(){
+    	location.href = "/main";
+    }
+    
+    function carList(){
+    	location.href = "/getCarList";
+    }
+  </script>
+</header>
 </html>

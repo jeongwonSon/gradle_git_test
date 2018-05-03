@@ -4,7 +4,11 @@ spring:
   banner:
     location: banner.txt
 
-
+logging:
+  level:
+    root: warn
+    org.springFramework.web : debug
+    com.example.demo : info
 
 #spring:
 #  thymeleaf:

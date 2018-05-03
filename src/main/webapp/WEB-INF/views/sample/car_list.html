@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  layout:decorator="layout/default">
+<section layout:fragment="content">
+  <th:block th:each="car:${carList}">
+    차 색깔은 <span th:text="${car.color}"></span>
+    문 개수는 <span th:text="${car.door}"></span><br/>
+  </th:block>
+</section>
+<script type="text/javascript">
+
+
+</script>
+</html>
