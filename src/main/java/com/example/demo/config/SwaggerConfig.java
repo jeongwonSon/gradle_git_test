@@ -16,6 +16,7 @@ public class SwaggerConfig {
 	 * 1. build.gradle의 dependencies에 swagger 관련 추가
 	 * 2. swaggerConfig 파일을 만든다.
 	 * 3. api()를 추가한다.
+	 * 4. paths()를 설정한다. Controller의 @RequestMapping에서 /api/**로 시작하는 url들만 필터링한다고 설정함.
 	 * 
 	 * -- PathSelectors.ant("/api/**")의 경우 /api/ path를 가진 url들만 공개하겠다는 얘기, 만약 모든
 	 * url을 화면에 노출시키고 싶을 경우 지우면 됨

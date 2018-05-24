@@ -15,47 +15,47 @@ import com.example.demo.domain.Member;
 @Controller
 @EnableCaching	// 어노테이션을 이용한 캐시기능을 사용하겠다는 선언
 public class MemberController {
-	
-	/**
-	 * @EnableCaching는 @Cacheable, @CacheEvict등 관련 어노테이션을 사용하겠다는 선언
-	 */
-	
-	private static Logger logger = LoggerFactory.getLogger(MemberController.class);
-	
-	@Autowired
-	MemberRepository memberRepository;
-	
-	@GetMapping("/member/nocache/{name}")
-	@ResponseBody
-	public Member getNoCacheMember(@PathVariable String name) {
-		
-		long start = System.currentTimeMillis();	// 수행시간 측정
-		Member member = memberRepository.findByNameNoCache(name);	// db 조회
-		long end = System.currentTimeMillis();
-		
-		logger.info(name+ "의 NoCache 수행시간 : " + Long.toString(end-start));
-		
-		return member;
-	}
-	
-	@GetMapping("/member/cache/{name}")
-	@ResponseBody
-	public Member getCacheMember(@PathVariable String name) {
-		
-		long start = System.currentTimeMillis();	// 수행시간 측정
-		Member member = memberRepository.findByNameCache(name);	// db 조회
-		long end = System.currentTimeMillis();
-		
-		logger.info(name+ "의 Cache 수행시간 : " + Long.toString(end-start));
-		
-		return member;
-	}
-	
-	@GetMapping("/member/refresh/{name}")
-	@ResponseBody
-	public String refresh(@PathVariable String name) {
-		memberRepository.refresh(name);	// 캐시제거
-		return "cache clear!!!";
-	}
-	
+  
+  /**
+   * @EnableCaching는 @Cacheable, @CacheEvict등 관련 어노테이션을 사용하겠다는 선언
+   */
+  
+  private static Logger logger = LoggerFactory.getLogger(MemberController.class);
+  
+  @Autowired
+  MemberRepository memberRepository;
+  
+  @GetMapping("/member/nocache/{name}")
+  @ResponseBody
+  public Member getNoCacheMember(@PathVariable String name) {
+    
+    long start = System.currentTimeMillis();	// 수행시간 측정
+    Member member = memberRepository.findByNameNoCache(name);	// db 조회
+    long end = System.currentTimeMillis();
+    
+    logger.info(name+ "의 NoCache 수행시간 : " + Long.toString(end-start));
+    
+    return member;
+  }
+  
+  @GetMapping("/member/cache/{name}")
+  @ResponseBody
+  public Member getCacheMember(@PathVariable String name) {
+    
+    long start = System.currentTimeMillis();	// 수행시간 측정
+    Member member = memberRepository.findByNameCache(name);	// db 조회
+    long end = System.currentTimeMillis();
+    
+    logger.info(name+ "의 Cache 수행시간 : " + Long.toString(end-start));
+    
+    return member;
+  }
+  
+  @GetMapping("/member/refresh/{name}")
+  @ResponseBody
+  public String refresh(@PathVariable String name) {
+    memberRepository.refresh(name);	// 캐시제거
+    return "cache clear!!!";
+  }
+
 }
