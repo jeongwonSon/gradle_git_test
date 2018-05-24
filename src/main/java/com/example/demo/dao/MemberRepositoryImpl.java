@@ -14,41 +14,41 @@ import com.example.demo.domain.Member;
  */
 @Repository
 public class MemberRepositoryImpl implements MemberRepository{
-	
-	private static Logger logger = LoggerFactory.getLogger(MemberRepositoryImpl.class);
-
-	@Override
-	public Member findByNameNoCache(String name) {
-		slowQuery(2000);
-		return new Member(0, name+"@gmail.com", name);
-	}
-
-	/**
-	 * @Cacheable(value="findMemberCache", key ="#name")
-	 * :: ehcache.xml에서 지정한 findMemberCache 캐시를 사용하겠다는 의미
-	 * (key에 따라 캐시 설정, 제거를 선택할 수 있다.)
-	 */
-	@Override
-	@Cacheable(value="findMemberCache", key ="#name")
-	public Member findByNameCache(String name) {
-		slowQuery(2000);
-		return new Member(0, name+"@gmail.com", name);
-	}
-
-	@Override
-	@CacheEvict(value="findMemberCache", key="#name")
-	public void refresh(String name) {
-		logger.info(name + "의 Cache Clear!");
-	}
-	
-	// 대용량 쿼리를 실행한다는 가정
-	private void slowQuery(long seconds) {
-		try {
-			Thread.sleep(seconds);
-		} catch (InterruptedException e) {
-			// TODO: handle exception
-			throw new IllegalStateException(e);
-		}
-	}
-
+  
+  private static Logger logger = LoggerFactory.getLogger(MemberRepositoryImpl.class);
+  
+  @Override
+  public Member findByNameNoCache(String name) {
+    slowQuery(2000);
+    return new Member(0, name+"@gmail.com", name);
+  }
+  
+  /**
+   * @Cacheable(value="findMemberCache", key ="#name")
+   * :: ehcache.xml에서 지정한 findMemberCache 캐시를 사용하겠다는 의미
+   * (key에 따라 캐시 설정, 제거를 선택할 수 있다.)
+   */
+  @Override
+  @Cacheable(value="findMemberCache", key ="#name")
+  public Member findByNameCache(String name) {
+    slowQuery(2000);
+    return new Member(0, name+"@gmail.com", name);
+  }
+  
+  @Override
+  @CacheEvict(value="findMemberCache", key="#name")
+  public void refresh(String name) {
+    logger.info(name + "의 Cache Clear!");
+  }
+  
+  // 대용량 쿼리를 실행한다는 가정
+  private void slowQuery(long seconds) {
+    try {
+    	Thread.sleep(seconds);
+    } catch (InterruptedException e) {
+      // TODO: handle exception
+      throw new IllegalStateException(e);
+    }
+  }
+  
 }

@@ -25,6 +25,9 @@ public class MemberController {
   @Autowired
   MemberRepository memberRepository;
   
+  /*
+   * 캐시 사용 유무에 따른 수행시간 비교 
+   */
   @GetMapping("/member/nocache/{name}")
   @ResponseBody
   public Member getNoCacheMember(@PathVariable String name) {
