@@ -3,12 +3,21 @@
 spring:
   banner:
     location: banner.txt
+  
+# ansi를 사용한다고 정의해주면 tomcat으로 실행 시, console에 color가 나옴 
+  output:
+    ansi:
+      enabled: always
 
 logging:
   level:
     root: warn
     org.springFramework.web : debug
     com.example.demo : info
+    
+# spring.output.ansi.enabled=always
+
+
 
 #spring:
 #  thymeleaf:

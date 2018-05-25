@@ -21,32 +21,32 @@ import nz.net.ultraq.thymeleaf.LayoutDialect;
 @Configuration
 public class ThymeleafConfig {
 
-	@Bean
-	public ITemplateResolver templateResolver() {
-		SpringResourceTemplateResolver resolver = new SpringResourceTemplateResolver();
-		resolver.setPrefix("/WEB-INF/views/");	// 경로 맞게 잘 적어줄 것
-		resolver.setSuffix(".html");
-		resolver.setTemplateMode("LEGACYHTML5");	// neko html을 활성화하려면 다음과 같이 mode를 해야함
-		resolver.setCacheable(false);
-		return resolver;
-	}
-	
-    @Bean
-    public SpringTemplateEngine templateEngine(){
-        SpringTemplateEngine templateEngine = new SpringTemplateEngine();
-        templateEngine.setTemplateResolver(templateResolver());
-        templateEngine.addDialect(new LayoutDialect());	// 해당 설정을 해줘야 thymeleafLayoutdialect 사용 가능!
-        return templateEngine;
-    }
- 
-    @Bean
-    public ViewResolver viewResolver(){
-        ThymeleafViewResolver viewResolver = new ThymeleafViewResolver() ;
-        viewResolver.setTemplateEngine(templateEngine());
-        viewResolver.setOrder(1);
-        viewResolver.setCache(false);
-        viewResolver.setCharacterEncoding("UTF-8");	// viewResolver에 UTF-8 처리를 하지 않으면 한글이 깨져서 나옴!
-        return viewResolver;
-    }
+  @Bean
+  public ITemplateResolver templateResolver() {
+    SpringResourceTemplateResolver resolver = new SpringResourceTemplateResolver();
+    resolver.setPrefix("/WEB-INF/views/");	// 경로 맞게 잘 적어줄 것
+    resolver.setSuffix(".html");
+    resolver.setTemplateMode("LEGACYHTML5");	// neko html을 활성화하려면 다음과 같이 mode를 해야함
+    resolver.setCacheable(false);
+    return resolver;
+  }
+
+  @Bean
+  public SpringTemplateEngine templateEngine(){
+    SpringTemplateEngine templateEngine = new SpringTemplateEngine();
+    templateEngine.setTemplateResolver(templateResolver());
+    templateEngine.addDialect(new LayoutDialect());	// 해당 설정을 해줘야 thymeleafLayoutdialect 사용 가능!
+    return templateEngine;
+  }
+
+  @Bean
+  public ViewResolver viewResolver(){
+    ThymeleafViewResolver viewResolver = new ThymeleafViewResolver() ;
+    viewResolver.setTemplateEngine(templateEngine());
+    viewResolver.setOrder(1);
+    viewResolver.setCache(false);
+    viewResolver.setCharacterEncoding("UTF-8");	// viewResolver에 UTF-8 처리를 하지 않으면 한글이 깨져서 나옴!
+    return viewResolver;
+  }
 	
 }

@@ -31,7 +31,7 @@ public class MemberRepositoryImpl implements MemberRepository{
   @Override
   @Cacheable(value="findMemberCache", key ="#name")
   public Member findByNameCache(String name) {
-    slowQuery(2000);
+    slowQuery(2000);  // slowQuery 호출
     return new Member(0, name+"@gmail.com", name);
   }
   

@@ -4,7 +4,11 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
+@Controller
 @SpringBootApplication
 public class GradleGitTestApplication {
 	
@@ -21,4 +25,10 @@ public class GradleGitTestApplication {
 		SpringApplication.run(GradleGitTestApplication.class, args);
 		logger.debug("---------Spring boot 2.0 시작----------");
 	}
+	
+	@RequestMapping("/")
+  public String index() {
+    // 아무 경로도 없을 때(기본경로)
+    return "redirect:/main";
+  }
 }

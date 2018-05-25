@@ -1,0 +1,14 @@
+1. tomcat 실행으로 project 구동하기
+(tomcat으로 실행 후, console에 색이 안 나와서 application.yml에 추가함)
+spring.output.ansi.enabled: always
+
+2. spring boot 2.0 document 읽는 중
+> 로그 설정은 spring-boot-starter-log4j2 /  spring-boot-starter-logging 둘 중 써도 무관함
+spring-boot-starter-logging이 default 이다
+..? Caused by: java.lang.StackOverflowError : build.gradle에 
+compile ('org.springframework.boot:spring-boot-starter-log4j2') ; 설정하니까 에러가 난다! 
+아 에러에 보니까 See http://www.slf4j.org/codes.html#multiple_bindings for an explanation. 두개가 binding 되면서..
+다시 해당 설정 부분을 주석처리하니까 문제없이 구동된다.
+
+> json설정 관련 추가
+> localhost:8080 으로 들어왔을 때 "/" -> "/main"으로 보내도록 설정
