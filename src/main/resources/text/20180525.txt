@@ -12,3 +12,6 @@ compile ('org.springframework.boot:spring-boot-starter-log4j2') ; 설정하니�
 
 > json설정 관련 추가
 > localhost:8080 으로 들어왔을 때 "/" -> "/main"으로 보내도록 설정
+
+3. spring boot error-page 관련
+참고 : http://kimbeast.tistory.com/entry/SpringBoot%EC%97%90%EC%84%9C-custom-error-page-%EC%B2%98%EB%A6%AC
