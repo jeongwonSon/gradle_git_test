@@ -1,0 +1,27 @@
+> 기존 업무와 port 겹쳐서 포트번호 수정함
+> local swagger 화면 
+: http://localhost:8085/swagger-ui.html#/member-controller
+
+api로 사용하지 않을 모든 controller 노출!
+설정을 따로 해야함(필터링 필요)
+:: swaggerConfig.java에 설정을 다 해놨었었는데 @Bean 어노테이션을 적지않아서 설정이 적용되지 않음
+
+
+> swaggerConfig.java를 따로 만들지 않고 application에 바로 붙여도 괜찮다.
+(참고)http://springboot.tistory.com/23?category=636662 
+
+/*
+.useDefaultResponseMessages(false)
+      .globalResponseMessage(RequestMethod.GET,
+                          newArrayList(new ResponseMessageBuilder()   
+                            .code(500)
+                            .message("500 message")
+                            .responseModel(new ModelRef("Error"))
+                            .build(),
+                          new ResponseMessageBuilder() 
+                            .code(403)
+                            .message("Forbidden!")
+                            .build()));
+*/
+
+해당 부분이 ㅠㅠ 안됨                           

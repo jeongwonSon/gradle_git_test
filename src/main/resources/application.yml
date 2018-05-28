@@ -9,11 +9,15 @@ spring:
     ansi:
       enabled: always
 
+server:
+  port: 8085
+
 logging:
   level:
     root: warn
     org.springFramework.web : debug
     com.example.demo : info
+    
     
 # spring.output.ansi.enabled=always
 
