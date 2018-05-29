@@ -25,3 +25,12 @@ api로 사용하지 않을 모든 controller 노출!
 */
 
 해당 부분이 ㅠㅠ 안됨                           
+(컨트롤러에 적는 방법으로 우회함)
+
+> build.gradle에 spring-boot-batch 추가함
+	batchConfig.java 추가
+(참고) 
+https://m.blog.naver.com/PostView.nhn?blogId=rlagyska3319&logNo=221142355472&proxyReferer=https%3A%2F%2Fwww.google.co.kr%2F
+
+spring boot의 datasource를 사용하지 않으려면 
+@SpringBootApplication(exclude = { DataSourceAutoConfiguration.class }) 추가해줘야한다.

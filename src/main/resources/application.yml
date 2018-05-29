@@ -3,11 +3,16 @@
 spring:
   banner:
     location: banner.txt
-  
-# ansi를 사용한다고 정의해주면 tomcat으로 실행 시, console에 color가 나옴 
+# 기본적으로 배치 작업은 응용 프로그램을 시작할 때 즉시 실행된다. 자동 실행 기능을 비활성화 해야한다.
+  batch:
+    initialize-schema: embedded
+    job:
+      enabled: false
   output:
     ansi:
       enabled: always
+  
+# ansi를 사용한다고 정의해주면 tomcat으로 실행 시, console에 color가 나옴 
 
 server:
   port: 8085
@@ -17,7 +22,6 @@ logging:
     root: warn
     org.springFramework.web : debug
     com.example.demo : info
-    
     
 # spring.output.ansi.enabled=always
 

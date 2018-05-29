@@ -1,0 +1,10 @@
+> spring-boot-batch datasource없이 하려면!
+@SpringBootApplication(exclude={DataSourceAutoConfiguration.class}) 추가
+
+> public class BatchConfig extends DefaultBatchConfigurer
+  @Override
+  public void setDataSource(DataSource dataSource) {
+      //This BatchConfigurer ignores any DataSource
+  }
+  
+  추가해야 error가 안남
