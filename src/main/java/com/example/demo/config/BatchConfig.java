@@ -18,7 +18,7 @@ public class BatchConfig extends DefaultBatchConfigurer{
 
   @Override
   public void setDataSource(DataSource dataSource) {
-      //This BatchConfigurer ignores any DataSource
+      //This BatchConfigurer ignores any DataSource (extends DefaultBatchConfigurer :: 추가필요)
   }
   
   @Bean

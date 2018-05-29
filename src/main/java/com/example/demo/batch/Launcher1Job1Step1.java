@@ -23,8 +23,8 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
 
-@Configuration // 기본 설정 선언
-@EnableBatchProcessing // 기본 설정 선언
+//@Configuration // 기본 설정 선언
+//@EnableBatchProcessing // 기본 설정 선언
 @EnableScheduling // 스케줄러 사용 선언
 public class Launcher1Job1Step1 { // http://www.javainuse.com/spring/bootbatch 참고
 
