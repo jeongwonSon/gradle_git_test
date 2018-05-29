@@ -14,3 +14,32 @@
 이전 batch 업무에서 사용했을 때는 tasklet 으로 사용함
 batch @configuration, @enableBatchProcessing 은 설정파일 1개만 된다.
 (sampleJobLancher.java에 해당 어노테이션 또 선언하니까 error 남)
+
+> JPA gradle에 붙임
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Field helloDao in com.example.demo.controller.HelloRestController required a bean of type 'com.example.demo.dao.HelloDao' that could not be found.
+
+
+Action:
+
+Consider defining a bean of type 'com.example.demo.dao.HelloDao' in your configuration.
+
+-->> error..
+
+GradleGitTestApplication -> //@SpringBootApplication(exclude={DataSourceAutoConfiguration.class}) 
+db안쓴다고 해놔서 error 발생했던거
+
+
+> h2 database 설치
+http://192.168.18.43:8082/login.do
+(내 local)
+E 드라이브에 설치함
+: E:\h2\bin\h2.bat을 실행시켜야 한다. (sa가 기본 사용자이므로 바로 시작)
+
+(2.5까지 정리함)
+> https://ultrakain.gitbooks.io/jpa/chapter2/chapter2.5.html 

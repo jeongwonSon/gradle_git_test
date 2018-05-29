@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.example.demo.dao.MemberRepository;
-import com.example.demo.domain.Member;
+import com.example.demo.domain.PreviousMember;
 
 @Controller
 @EnableCaching	// 어노테이션을 이용한 캐시기능을 사용하겠다는 선언
@@ -30,10 +30,10 @@ public class MemberController {
    */
   @GetMapping("/member/nocache/{name}")
   @ResponseBody
-  public Member getNoCacheMember(@PathVariable String name) {
+  public PreviousMember getNoCacheMember(@PathVariable String name) {
     
     long start = System.currentTimeMillis();	// 수행시간 측정
-    Member member = memberRepository.findByNameNoCache(name);	// db 조회
+    PreviousMember member = memberRepository.findByNameNoCache(name);	// db 조회
     long end = System.currentTimeMillis();
     
     logger.info(name+ "의 NoCache 수행시간 : " + Long.toString(end-start));
@@ -43,10 +43,10 @@ public class MemberController {
   
   @GetMapping("/member/cache/{name}")
   @ResponseBody
-  public Member getCacheMember(@PathVariable String name) {
+  public PreviousMember getCacheMember(@PathVariable String name) {
     
     long start = System.currentTimeMillis();	// 수행시간 측정
-    Member member = memberRepository.findByNameCache(name);	// db 조회
+    PreviousMember member = memberRepository.findByNameCache(name);	// db 조회
     long end = System.currentTimeMillis();
     
     logger.info(name+ "의 Cache 수행시간 : " + Long.toString(end-start));

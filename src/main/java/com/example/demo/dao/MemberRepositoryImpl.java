@@ -6,7 +6,7 @@ import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Repository;
 
-import com.example.demo.domain.Member;
+import com.example.demo.domain.PreviousMember;
 
 /*
  * 한 번 조회할 때마다 2초 이상의 시간이 필요하다고 가정한 뒤,
@@ -18,9 +18,9 @@ public class MemberRepositoryImpl implements MemberRepository{
   private static Logger logger = LoggerFactory.getLogger(MemberRepositoryImpl.class);
   
   @Override
-  public Member findByNameNoCache(String name) {
+  public PreviousMember findByNameNoCache(String name) {
     slowQuery(2000);
-    return new Member(0, name+"@gmail.com", name);
+    return new PreviousMember(0, name+"@gmail.com", name);
   }
   
   /**
@@ -30,9 +30,9 @@ public class MemberRepositoryImpl implements MemberRepository{
    */
   @Override
   @Cacheable(value="findMemberCache", key ="#name")
-  public Member findByNameCache(String name) {
+  public PreviousMember findByNameCache(String name) {
     slowQuery(2000);  // slowQuery 호출
-    return new Member(0, name+"@gmail.com", name);
+    return new PreviousMember(0, name+"@gmail.com", name);
   }
   
   @Override

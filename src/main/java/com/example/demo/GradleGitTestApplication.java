@@ -9,7 +9,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@SpringBootApplication(exclude={DataSourceAutoConfiguration.class})
+//@SpringBootApplication(exclude={DataSourceAutoConfiguration.class})
+@SpringBootApplication
 public class GradleGitTestApplication {
 	
 	private static Logger logger = LoggerFactory.getLogger(GradleGitTestApplication.class);

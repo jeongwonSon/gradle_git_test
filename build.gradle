@@ -37,11 +37,14 @@ dependencies {
 //	compile('org.springframework.boot:spring-boot-starter-security')
 	compile('org.springframework.boot:spring-boot-starter-web')
 	compile ('org.springframework.boot:spring-boot-starter-thymeleaf')
-//	compile('org.springframework.boot:spring-boot-starter-data-jpa')
 	compile ('org.springframework.boot:spring-boot-starter-batch')
 	compile('org.springframework.boot:spring-boot-starter-tomcat')
 	compile ('org.springframework.boot:spring-boot-starter-json')
-//	runtime('mysql:mysql-connector-java')	providedRuntime('org.springframework.boot:spring-boot-starter-tomcat')
+
+	// jpa 설정
+	compile("org.springframework.boot:spring-boot-starter-data-jpa")
+	compile("org.springframework.boot:spring-boot-starter-jdbc")
+	runtime("com.h2database:h2")
 
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 	testCompile('org.springframework.security:spring-security-test')

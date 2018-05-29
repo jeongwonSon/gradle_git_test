@@ -3,15 +3,21 @@ package com.example.demo.controller;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.springframework.stereotype.Controller;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
+import com.example.demo.dao.HelloDao;
 import com.example.demo.domain.Car;
+import com.example.demo.domain.Hello;
 
-@Controller
+@RestController
 public class HelloRestController {
+  
+  @Autowired
+  private HelloDao helloDao;
   
   @RequestMapping("/main")
   @ResponseBody
@@ -48,5 +54,18 @@ public class HelloRestController {
     
     model.addAttribute("carList", carList);
     return "sample/car_list";
+  }
+  
+  // Jpa sample test 추가
+  @RequestMapping("/add")
+  public Hello add(Hello hello) {
+    Hello helloData = helloDao.save(hello);
+    return helloData;
+  }
+  
+  @RequestMapping("/list")
+  public List<Hello> list(Model model){
+    List<Hello> helloList = helloDao.findAll();
+    return helloList;
   }
 }
