@@ -1,0 +1,40 @@
+>  yaml 설정으로 인해서 실행 시, 오류가 발생함(application.yml)
+-------------------------------------------
+  batch:
+    initialize-schema: embedded
+    job:
+      enabled: false
+  output:
+    ansi:
+      enabled: always
+  jpa:
+    database: h2
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:test;DB_CLOSE_DELAY=-1
+    username: sa
+    password: 
+---------------------------------------------
+=== 해당 부분까지는 문제가 없음 ==
+datasource:
+    driver-class-name: org.h2.Driver
+:: driver-class-name이 잘못 설정되어있었음
+
+> domain 생성해서 spring boot run 하면 table 생성된다는데..
+나는 안된다ㅠㅠ
+-->> 해결
+build.gradle 설정에 compile("com.h2database:h2") 로 했었어야 하는데,
+//	runtime("com.h2database:h2") -> 으로 설정해서 실행이 되지않았음
+
+
+-> db null 이라고 나오는 오류는 h2.bat을 실행시키지 않아서 나는 error
+실행시키면 잘 보임
+(배치 테이블, hello, user, cart 생긴 거 확인 함)
+
+> db 설정하는 방법은 다양하게 있음
+	- java로 설정도 가능하고, yaml로도 설정 가능함!, properties로 가능하고!
+	- 이 프로젝트는 yaml로 설정함
+	
+> spring.h2.console.path를 명시하지 않았을 경우, default path인 /h2-console로 접속하면 됨
+(나는 여기서 gradleGitTestApplication.java에 명시함, yaml로 바꿀 수 있음)
+--> h2config 파일로 빼서 따로 관리할 예정 :: 20180530

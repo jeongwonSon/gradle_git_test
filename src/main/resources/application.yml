@@ -11,7 +11,38 @@ spring:
   output:
     ansi:
       enabled: always
-  
+# jpa 설정
+  jpa:
+    database: h2
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto:  update
+    show-sql: true
+      
+  datasource:
+    driver-class-name: org.h2.Driver
+#    url: jdbc:h2:mem:test;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    url: jdbc:h2:~/test;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE;AUTO_SERVER=TRUE
+    username: sa
+    password: 
+
+
+#  jpa:
+#    database-platform: org.hibernate.dialect.H2Dialect
+#    database: h2
+#    generate-ddl: false
+#    open-in-view: false
+#    show-sql: true
+#    hibernate:
+#      ddl-auto: validate
+#      naming:
+#        implicit-strategy: org.hibernate.cfg.EJB3NamingStrategy
+#    properties:
+#      hibernate.cache.use_second_level_cache: true
+#      hibernate.cache.use_query_cache: false
+#      hibernate.generate_statistics: true
+#      hibernate.cache.region.factory_class: org.hibernate.cache.ehcache.SingletonEhCacheRegionFactory
+        
 # ansi를 사용한다고 정의해주면 tomcat으로 실행 시, console에 color가 나옴 
 
 server:
@@ -23,9 +54,6 @@ logging:
     org.springFramework.web : debug
     com.example.demo : info
     
-# spring.output.ansi.enabled=always
-
-
 
 #spring:
 #  thymeleaf:
