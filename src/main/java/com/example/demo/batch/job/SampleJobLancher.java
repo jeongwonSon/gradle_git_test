@@ -46,6 +46,9 @@ public class SampleJobLancher {
   @Autowired
   private Step stepName;
   
+//  @Autowired
+//  private SampleTasklet sampleTasklet;
+  
   @Scheduled(cron = "2 * * * * *")
   public void sampleSchedulerBatch() throws JobExecutionAlreadyRunningException, JobRestartException, JobInstanceAlreadyCompleteException, JobParametersInvalidException {
     String jobId = String.valueOf(System.currentTimeMillis());

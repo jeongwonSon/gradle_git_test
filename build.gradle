@@ -22,7 +22,7 @@ version = '0.0.1-SNAPSHOT'
 sourceCompatibility = 1.8
 
 repositories {
-	mavenCentral()
+	mavenCentral()	// maven Repository를 참조(가장 기본 maven)
 }
 
 configurations {
@@ -47,7 +47,7 @@ dependencies {
 	compile("com.h2database:h2")
 //	runtime("com.h2database:h2")
 	
-	// test compile
+	// test compile :: 추가로 Spring test, Junit, Hamcrest, Mockito 모두 사용 가능
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 //	testCompile('org.springframework.security:spring-security-test')
 	testCompile('junit:junit')
@@ -61,6 +61,9 @@ dependencies {
 	
 	// ehcache 설정
 	compile group: 'net.sf.ehcache', name: 'ehcache', version: '2.10.3'
+	
+	// gson 설정(json을 편하게 쓰기 위한 google에서 만든 lib)
+	compile group: 'com.google.code.gson', name: 'gson', version:'2.7'
 	
 	// bootstrap 설정
 	compile 'org.webjars.bower:bootstrap:4.1.1'

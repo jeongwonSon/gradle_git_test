@@ -10,3 +10,33 @@
  @Test
  @After
  @AfterClass
+ 
+ 
+ ** build.gradle 정리
+(dependencies의 설정)
+- compile : compile시 필요한 dependency를 설정
+- testCompile : test시, 필요한 dependency를 설정
+- providedCompile : compile시에는 필요하지만, 배포시에는 제외될 dependency를 설정
+(war plugin이 설정된 경우에만 사용 가능함)
+- providedRuntime : runtime시에만 필요하고, 실행환경에서 제공되는 dependency를 설정
+(war plugin이 설정된 경우에만 사용 가능함)
+
+** apply plugin: 'war'
+- 웹 어플리케이션 리소스 기본 디렉토리 : src/main/webapp
+- WebAppDirName 값을 프로젝트에 상대적인 디렉토리로 지정하면 웹 어플리케이션 리소스의
+  디렉토리를 변경할 수 있다.
+  
+> 참조 : http://kwonnam.pe.kr/wiki/gradle/web
+
+(동적 버전 결정과 변하는 모듈)
+- 특정 의존 library에 대해 항상 최신 버전을 사용하거나, 혹은 특정 버전대의 최신을 사용
+  하고 싶을 경우가 있다. 동적 버전을 통해 가능함.
+- 변하는 모듈 : 어떤 경우에는 동일 버전이라도 모듈이 변경되는 때가 있음
+(maven의 snapshot, 특히 사내 프로젝트의 경우 이런게 많음)
+- 동적 버전은 실제 버전이 변경되고, 변하는 모듈은 버전은 그대로지만 그 내용물(jar)이
+  계속해서 변경될 수 있음
+- 기본적으로 동적 버전과 변하는 모듈은 24시간 캐시된다. 설정을 통해 바꿀 수 있음!
+- 특정 library의 변경을 매번 검사할 필요가 있다면 changing = true 옵션 추가
+예시 : compile ('com.some:library:0.1') { changing = true }
+
+> 참조 : http://kwonnam.pe.kr/wiki/gradle/dependencies

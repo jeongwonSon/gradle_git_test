@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.demo.dao.HelloDao;
 import com.example.demo.domain.Car;
 import com.example.demo.domain.Hello;
+import com.google.gson.Gson;
 
 @RestController
 public class HelloRestController {
@@ -23,7 +24,16 @@ public class HelloRestController {
   @ResponseBody
   public String index() {
   	// hello world를 찍어보자! test
-  	return "hello world";
+    String value = "hello world";
+    Gson gson = new Gson();
+    
+    /*
+     * WebMvcConfig.java 추가하고 나니 error는 나지 않음.
+     * 하지만 원하는 값이 나오지 않는다.
+     * :: gson.toString()을 찍는게 아니고, gson.toJson()으로 찍어야 원하는 json값이 나온다.
+     * (단, messageConverter 추가해야 함)
+     */
+  	return gson.toJson(value);
   }
   
   @RequestMapping("/hello")

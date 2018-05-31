@@ -1,5 +1,8 @@
 package com.example.demo.domain;
 
+/*
+ * 젤 처음에 test로 사용해봤던 member domain
+ */
 public class PreviousMember {
 
 	private long idx;
