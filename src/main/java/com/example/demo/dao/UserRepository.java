@@ -10,6 +10,4 @@ import com.example.demo.domain.User;
  */
 public interface UserRepository extends JpaRepository<User, Long>{
 
-//  User findOne(long id);
-
 }

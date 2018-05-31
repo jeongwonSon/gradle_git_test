@@ -2,9 +2,10 @@ package com.example.demo.batch.step;
 
 import java.util.List;
 
+import javax.persistence.EntityManagerFactory;
+
 import org.springframework.batch.core.Step;
 import org.springframework.batch.core.configuration.annotation.StepBuilderFactory;
-import org.springframework.batch.item.ItemProcessor;
 import org.springframework.batch.item.ItemReader;
 import org.springframework.batch.item.ItemWriter;
 import org.springframework.batch.item.NonTransientResourceException;
@@ -32,9 +33,13 @@ public class SampleStepConfig {
   
   /**
    * mybatis를 사용하면 SqlSessionFactory 사용, jpa를 쓸 경우 EntityManagerFactory를 사용한다.
+   * 
+   * ---> 2018년 5월 30일 jpa 추가함(entityManagerFactory 추가)
    */
 //  @Autowired
 //  private SqlSessionFactory sqlSessionFactory;
+  @Autowired
+  private EntityManagerFactory EntityManagerFactory;
   
   @Bean
   public Step sampleStep() {

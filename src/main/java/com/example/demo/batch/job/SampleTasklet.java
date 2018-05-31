@@ -9,7 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.example.demo.service.SampleService;
 
-public class SampleTasklet implements Tasklet, InitializingBean{
+public class SampleTasklet implements Tasklet{
 
   @Autowired
   private SampleService sampleService;
@@ -18,12 +18,6 @@ public class SampleTasklet implements Tasklet, InitializingBean{
   public RepeatStatus execute(StepContribution contribution, ChunkContext chunkContext) throws Exception {
     // TODO Auto-generated method stub
     return null;
-  }
-
-  @Override
-  public void afterPropertiesSet() throws Exception {
-    // TODO Auto-generated method stub
-    
   }
 
 }

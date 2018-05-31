@@ -40,3 +40,7 @@
 예시 : compile ('com.some:library:0.1') { changing = true }
 
 > 참조 : http://kwonnam.pe.kr/wiki/gradle/dependencies
+
+
+> gson 사용!
+build.gradle에 추가하고, webmvcconfig에 messageConverters()추가함.
