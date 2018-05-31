@@ -44,3 +44,7 @@
 
 > gson 사용!
 build.gradle에 추가하고, webmvcconfig에 messageConverters()추가함.
+
+> 참고
+http://docs.spring.io/spring-data/jpa/docs/1.10.1.RELEASE/reference/html/#jpa.sample-app.finders.strategies
+출처: http://adrenal.tistory.com/23 [시나몬 브레드]

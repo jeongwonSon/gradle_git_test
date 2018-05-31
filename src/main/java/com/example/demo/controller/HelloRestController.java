@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.demo.dao.HelloDao;
+import com.example.demo.dao.HelloRepository;
 import com.example.demo.domain.Car;
 import com.example.demo.domain.Hello;
 import com.google.gson.Gson;
@@ -18,7 +18,7 @@ import com.google.gson.Gson;
 public class HelloRestController {
   
   @Autowired
-  private HelloDao helloDao;
+  private HelloRepository helloDao;
   
   @RequestMapping("/main")
   @ResponseBody
