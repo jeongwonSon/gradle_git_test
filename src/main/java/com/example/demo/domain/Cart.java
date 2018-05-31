@@ -6,6 +6,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+/**
+ * @Entitiy 는 해당 클래스가 JPA entity임을 나타낸다.
+ *
+ */
 @Entity
 public class Cart {
 
