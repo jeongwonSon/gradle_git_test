@@ -1,0 +1,7 @@
+> junit test 에서
+jackson이랑 gson 비교 및 확인해보려고 
+build.gradle에 jackson 관련 compile 추가함
+(Jackson 라이브러리를 이용해서 Json을 다루는 테스트 케이스들을 모아놓은 거)
+
+blog 참고해서 junit test 만들었는데ㅠㅠ
+error 발생으로 실행되지 않음..
