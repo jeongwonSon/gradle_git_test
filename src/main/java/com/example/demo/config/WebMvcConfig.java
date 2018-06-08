@@ -19,11 +19,14 @@ import com.google.gson.GsonBuilder;
 @EnableWebMvc
 public class WebMvcConfig extends WebMvcConfigurerAdapter{
   
+  /**
+   * Gson http message converter
+   */
   @Override
   public void configureMessageConverters(List<HttpMessageConverter<?>> converters) {
     converters.add(createGsonHttpMessageConverter());
   }
-//
+
   private GsonHttpMessageConverter createGsonHttpMessageConverter() {
     Gson gson = new GsonBuilder()
                   .excludeFieldsWithoutExposeAnnotation()
@@ -38,6 +41,11 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter{
   
   /**
    * JacksonTest.java 에서 Jackson 관련 테스트 해보려고 추가했는데, error가 계속 남(아직 해결 못함)
+   */
+  
+  /**
+   * Jackson http message converter
+   * (해당 프로젝트에는 gson 사용해볼 예정)
    */
 //  @Override
 //  public void configureMessageConverters(List<HttpMessageConverter<?>> converters) {

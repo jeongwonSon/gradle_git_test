@@ -8,6 +8,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
+/*
+ * datasource를 사용하고 싶지 않으면 아래와 같이 어노테이션에 추가하면 된다.
+ */
 //@SpringBootApplication(exclude={DataSourceAutoConfiguration.class})
 @SpringBootApplication
 public class GradleGitTestApplication {
@@ -31,5 +34,5 @@ public class GradleGitTestApplication {
     // 아무 경로도 없을 때(기본경로)
     return "redirect:/main";
   }
-
+	
 }

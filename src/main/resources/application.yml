@@ -1,5 +1,4 @@
 # ThymeleafConfig에 이미 설정해놓음
-
 spring:
   banner:
     location: banner.txt
@@ -25,8 +24,23 @@ spring:
     url: jdbc:h2:~/test;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE;AUTO_SERVER=TRUE
     username: sa
     password: 
+  profiles:
+    active: local
 
-
+# actuator 설정
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+    jmx:
+      exposure:
+        include: "*"
+  endpoint:
+#    beans:
+#      enabled: false
+    shutdown:
+      enabled: true
 #  jpa:
 #    database-platform: org.hibernate.dialect.H2Dialect
 #    database: h2

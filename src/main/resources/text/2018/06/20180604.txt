@@ -1,0 +1,2 @@
+> JPA 쿼리 작성법
+https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#jpa.query-methods.query-creation

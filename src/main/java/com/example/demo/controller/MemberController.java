@@ -1,64 +1,56 @@
 package com.example.demo.controller;
 
+import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.example.demo.dao.MemberRepository;
-import com.example.demo.domain.PreviousMember;
+import com.example.demo.domain.Member;
 
 @Controller
-@EnableCaching	// 어노테이션을 이용한 캐시기능을 사용하겠다는 선언
 public class MemberController {
-  
-  /**
-   * @EnableCaching는 @Cacheable, @CacheEvict등 관련 어노테이션을 사용하겠다는 선언
-   */
-  
-  private static Logger logger = LoggerFactory.getLogger(MemberController.class);
+
+  private static Logger logger = LoggerFactory.getLogger(MemberController.class); 
   
   @Autowired
   MemberRepository memberRepository;
   
-  /*
-   * 캐시 사용 유무에 따른 수행시간 비교 
-   */
-  @GetMapping("/member/nocache/{name}")
-  @ResponseBody
-  public PreviousMember getNoCacheMember(@PathVariable String name) {
-    
-    long start = System.currentTimeMillis();	// 수행시간 측정
-    PreviousMember member = memberRepository.findByNameNoCache(name);	// db 조회
-    long end = System.currentTimeMillis();
-    
-    logger.info(name+ "의 NoCache 수행시간 : " + Long.toString(end-start));
-    
-    return member;
-  }
-  
-  @GetMapping("/member/cache/{name}")
-  @ResponseBody
-  public PreviousMember getCacheMember(@PathVariable String name) {
-    
-    long start = System.currentTimeMillis();	// 수행시간 측정
-    PreviousMember member = memberRepository.findByNameCache(name);	// db 조회
-    long end = System.currentTimeMillis();
-    
-    logger.info(name+ "의 Cache 수행시간 : " + Long.toString(end-start));
-    
-    return member;
-  }
-  
-  @GetMapping("/member/refresh/{name}")
-  @ResponseBody
-  public String refresh(@PathVariable String name) {
-    memberRepository.refresh(name);	// 캐시제거
-    return "cache clear!!!";
-  }
+  @RequestMapping("/member/jpa")
+  public void run(String... arg) throws Exception{
 
+    memberRepository.save(new Member("a",10));
+    memberRepository.save(new Member("b",15));
+    memberRepository.save(new Member("c",10));
+    memberRepository.save(new Member("a",5));
+    
+    Iterable<Member> list1 = memberRepository.findAll();
+    System.out.println("findAll() Method.");
+    list1.forEach(member ->{
+      System.out.println(member.toString());
+    });
+    
+    System.out.println("findByNameAndAgeLessThan() Method.");
+    List<Member> list2 = memberRepository.findByNameAndAgeLessThan("a", 10);
+    list2.forEach(member ->{
+      System.out.println(member.toString());
+    });
+    
+    System.out.println("findByNameAndAgeLessThanSQL() Method.");
+    List<Member> list3 = memberRepository.findByNameAndAgeLessThanSQL("a", 10);
+    list3.forEach(member->{
+      System.out.println(member.toString());
+    });
+    
+    System.out.println("findByNameAndAgeLessThanSQL() Method.");
+    List<Member> list4 = memberRepository.findByNameAndAgeLessThanOrderByAgeDesc("a", 15);
+    list4.forEach(member->{
+      System.out.println(member.toString());
+    });
+    
+    memberRepository.deleteAll();
+  }
 }

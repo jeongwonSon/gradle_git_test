@@ -13,9 +13,9 @@ import com.example.demo.domain.PreviousMember;
  * 캐시에 따라 수행속도 차이가 나는 지 비교를 함
  */
 @Repository
-public class MemberRepositoryImpl implements MemberRepository{
+public class PreviousMemberRepositoryImpl implements PreviousMemberRepository{
   
-  private static Logger logger = LoggerFactory.getLogger(MemberRepositoryImpl.class);
+  private static Logger logger = LoggerFactory.getLogger(PreviousMemberRepositoryImpl.class);
   
   @Override
   public PreviousMember findByNameNoCache(String name) {

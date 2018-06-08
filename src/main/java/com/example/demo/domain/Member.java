@@ -2,8 +2,11 @@ package com.example.demo.domain;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
 
 @Entity
 @Table(name="MEMBER")
@@ -32,27 +35,42 @@ public class Member {
   
   @Id
   @Column(name="ID")
+  @GeneratedValue(strategy=GenerationType.AUTO)
   private Long id;
   
   @Column(name="NAME")
-  private String username;
-  private Integer age;
+  private String name;
+  
+  @Column
+  private int age;
+
+  public Member(){}
+  
+  public Member(String name, int age) {
+    this.name = name;
+    this.age = age;
+  }
   public Long getId() {
     return id;
   }
   public void setId(Long id) {
     this.id = id;
   }
-  public String getUsername() {
-    return username;
+  public String getName() {
+    return name;
   }
-  public void setUsername(String username) {
-    this.username = username;
+  public void setName(String name) {
+    this.name = name;
   }
-  public Integer getAge() {
+  public int getAge() {
     return age;
   }
-  public void setAge(Integer age) {
+  public void setAge(int age) {
     this.age = age;
+  }
+  
+  @Override
+  public String toString() {
+    return "[" + id +"] name =" + name + ", age= " +age;
   }
 }

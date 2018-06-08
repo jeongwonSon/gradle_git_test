@@ -17,10 +17,12 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
+/*
+ * 이건 junit으로 실행 시, error남(test 4개 다 실행이 안됨)
+ */
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class JacksonTest {
-
   private ObjectMapper mapper;
   
   @Before

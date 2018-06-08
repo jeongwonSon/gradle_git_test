@@ -36,6 +36,8 @@ dependencies {
 	// security 설정 주석 처리
 //	compile('org.springframework.boot:spring-boot-starter-security')
 	compile('org.springframework.boot:spring-boot-starter-web')
+	// actuator 추가(프로젝트 내부를 볼 수 있는 기능)
+	compile("org.springframework.boot:spring-boot-starter-actuator")
 	compile ('org.springframework.boot:spring-boot-starter-thymeleaf')
 	compile ('org.springframework.boot:spring-boot-starter-batch')
 	compile('org.springframework.boot:spring-boot-starter-tomcat')
@@ -45,7 +47,6 @@ dependencies {
 	compile("org.springframework.boot:spring-boot-starter-data-jpa")
 	compile("org.springframework.boot:spring-boot-starter-jdbc")
 	compile("com.h2database:h2")
-//	runtime("com.h2database:h2")
 	
 	// test compile :: 추가로 Spring test, Junit, Hamcrest, Mockito 모두 사용 가능
 	testCompile('org.springframework.boot:spring-boot-starter-test')
