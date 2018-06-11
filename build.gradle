@@ -38,6 +38,9 @@ dependencies {
 	compile('org.springframework.boot:spring-boot-starter-web')
 	// actuator 추가(프로젝트 내부를 볼 수 있는 기능)
 	compile("org.springframework.boot:spring-boot-starter-actuator")
+	// /actuator 라는 엔드포인트를 접근하기 위하여 추가함
+	compile("org.springframework.boot:spring-boot-starter-hateoas")
+	
 	compile ('org.springframework.boot:spring-boot-starter-thymeleaf')
 	compile ('org.springframework.boot:spring-boot-starter-batch')
 	compile('org.springframework.boot:spring-boot-starter-tomcat')

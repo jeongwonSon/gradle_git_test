@@ -11,7 +11,9 @@ public class HealthChecker implements HealthIndicator{
   public Health health() {
     boolean isOk = check();
     if(!isOk) {
-      return Health.down().withDetail("ErrorCode", 10000).build();
+      int errorCode = 404;
+      return Health.down().withDetail("ErrorCoode", errorCode).build();
+//      return Health.down().withDetail("ErrorCode", 10000).build();
     }
     return Health.up().build();
   }
