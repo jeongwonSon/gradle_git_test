@@ -1,0 +1,6 @@
+> web.xml 파일 error 난 이유!
+에러 메시지 : cvc-complex-type.4: Attribute 'version' must appear on element 'web-app'
+web-app 태그에 version 표기가 안되어서 났던 에러!
+version 표기 후, error 사라짐
+
+

@@ -75,6 +75,7 @@ logging:
     com.example.demo : info
     
 
+# 해당하는 부분은 ThymeleafConfig.java에 추가함
 #spring:
 #  thymeleaf:
 #    cache: false

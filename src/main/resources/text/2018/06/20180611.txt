@@ -34,3 +34,6 @@ Instrumentation : MBean에 의해 관리되는 리소스들
 > GradleGitTestApplication.java
 위치를 /gradle_git_test/src/main/java/com/example/demo/ 로 이동함
 이동하면서 @ComponentScan 어노테이션을 써주고 basePackages를 적어줬다.
+
+> 암호화, 복호화 관련 util 추가 
+  암호화, 복호화 어노테이션 추가 

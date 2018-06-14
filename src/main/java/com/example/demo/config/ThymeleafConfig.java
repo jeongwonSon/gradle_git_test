@@ -39,6 +39,9 @@ public class ThymeleafConfig {
     return templateEngine;
   }
 
+  /**
+   * 해당 부분과 같은 표현 -> application.yml에 주석처리 되어 있음
+   */
   @Bean
   public ViewResolver viewResolver(){
     ThymeleafViewResolver viewResolver = new ThymeleafViewResolver() ;
