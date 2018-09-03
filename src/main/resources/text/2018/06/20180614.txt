@@ -4,3 +4,10 @@ web-app 태그에 version 표기가 안되어서 났던 에러!
 version 표기 후, error 사라짐
 
 
+> JPA 엔티티 관해서!
+domain에 member.java가 있는데 그 안에 해당하는 컬럼이
+id, name, age 3가지가 있다. 항상 모든 필드를 다 다루는 것은 아님.
+어떤 경우는 id, name 만 다루는 경우도 존재함.
+
+그런 경우는 entity 클래스를 하나 더 만들 수 있다.
+만들고 위에 @table(name="Member") 어노테이션 선언해줘야 함
