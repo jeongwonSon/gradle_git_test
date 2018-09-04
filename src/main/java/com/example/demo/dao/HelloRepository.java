@@ -9,6 +9,8 @@ import com.example.demo.domain.Hello;
  * JpaRepository를 상속받은 인터페이스
  * @author jeongwon
  * @description :: http://projects.spring.io/spring-data-jpa/ -> jpa관한 자세한 사항은 여기 참고
+ *              JpaRepository<Hello, Integer> 클래스를 상속받아야 사용 가능 함
+ *              (이 클래스는 Spring-Data JPA에서 제공하는 클래스로 쿼리에 해당하는 내용들이 정의가 되어있음)
  */
 public interface HelloRepository extends JpaRepository<Hello, Integer>{
   

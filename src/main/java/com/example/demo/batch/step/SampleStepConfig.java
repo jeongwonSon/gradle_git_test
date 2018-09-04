@@ -3,6 +3,7 @@ package com.example.demo.batch.step;
 import java.util.List;
 
 import javax.persistence.EntityManagerFactory;
+import javax.sql.DataSource;
 
 import org.springframework.batch.core.Step;
 import org.springframework.batch.core.configuration.annotation.StepBuilderFactory;
@@ -11,9 +12,14 @@ import org.springframework.batch.item.ItemWriter;
 import org.springframework.batch.item.NonTransientResourceException;
 import org.springframework.batch.item.ParseException;
 import org.springframework.batch.item.UnexpectedInputException;
+import org.springframework.batch.item.data.RepositoryItemWriter;
+import org.springframework.batch.item.data.builder.RepositoryItemWriterBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+
+import com.example.demo.dao.UserRepository;
+import com.example.demo.domain.User;
 
 @Configuration
 public class SampleStepConfig {
@@ -39,7 +45,10 @@ public class SampleStepConfig {
 //  @Autowired
 //  private SqlSessionFactory sqlSessionFactory;
   @Autowired
-  private EntityManagerFactory EntityManagerFactory;
+  private EntityManagerFactory entityManagerFactory;
+  
+  @Autowired
+  private UserRepository userRepository;
   
   @Bean
   public Step sampleStep() {
@@ -54,6 +63,7 @@ public class SampleStepConfig {
   @Bean
   public ItemReader<String> sampleItemReader(){
     // sample에는 여기서 mybatis(db)읽어오는 부분이 있지만, db 사용하지 않음
+    // TODO :: h2 db 추가함 :: 20180904
     ItemReader<String> reader = new ItemReader<String>() {
       String[] messages = { "sample data", "Welcome to Spring Batch Example", "Database for this example" };
       int count = 0;
@@ -68,7 +78,7 @@ public class SampleStepConfig {
         return null;
       }
     };
-
+    entityManagerFactory.createEntityManager();
     return reader;
   }
   
@@ -85,14 +95,28 @@ public class SampleStepConfig {
   public ItemWriter<String> sampleItemWriter(){
     // 여기도 reader 처럼 mybatis 관련
     ItemWriter<String> writer = new ItemWriter<String>() {
-
       @Override
       public void write(List<? extends String> items) throws Exception {
         for (String msg : items) {
           System.out.println("the data " + msg);
+          
         }
       }
     };
+    
     return writer;
+  }
+  
+  public RepositoryItemWriter<User> writer(){
+    /*
+     * (하단 코드와 주석처리된 4줄이 같은 내용임 :: batch jpa repository)
+     * RepositoryItemWriter<User> writer = new RepositoryItemWriter<>();
+       writer.setRepository(userRepository);
+       writer.setMethodName("save");
+       return writer;
+     */
+    
+    return new RepositoryItemWriterBuilder<User>().methodName("save").repository(userRepository).build();
+        
   }
 }
