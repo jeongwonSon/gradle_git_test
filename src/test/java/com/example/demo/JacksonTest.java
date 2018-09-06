@@ -20,8 +20,8 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 /*
  * 이건 junit으로 실행 시, error남(test 4개 다 실행이 안됨)
  */
-@RunWith(SpringRunner.class)
-@SpringBootTest
+//@RunWith(SpringRunner.class)
+//@SpringBootTest
 public class JacksonTest {
   private ObjectMapper mapper;
   
@@ -44,6 +44,11 @@ public class JacksonTest {
     }
     */
     InputStream is = JacksonTest.class.getClassLoader().getResourceAsStream("test.json");
+    /*
+     * (2018.09.06)
+     * test.json 및 test2.json 파일이 읽혀지질 않아서 해당 파일 두개 위치 변경함
+     * -> /src/main/resources/ 아래 있어야 파일이 읽혀짐!
+     */
     Map test = mapper.readValue(is, Map.class);
     assertTrue("JDM".equals(test.get("name")));
     assertTrue(30 == Integer.parseInt(test.get("age").toString()));
@@ -115,5 +120,6 @@ public class JacksonTest {
     assertTrue(obj.get("item").asText().equals("i'm Item!"));
     ((ObjectNode)obj).put("item", "change Value!"); // .set()을 사용해도 된다.
     assertTrue(obj.get("item").asText().equals("Change Value!"));
+    System.out.println("objectNode로 바꾼 값 : " + obj);
   }
 }

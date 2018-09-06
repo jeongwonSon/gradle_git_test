@@ -1,12 +1,11 @@
 package com.example.demo.domain;
 
 import javax.persistence.Column;
+import javax.persistence.Convert;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-
-import com.example.demo.common.annotation.Encrypt;
 
 @Entity
 public class User {
@@ -15,7 +14,12 @@ public class User {
   @GeneratedValue(strategy=GenerationType.IDENTITY)
   private Long id;
   
+  /*
+   * TODO:: jpa로 암호화하는 거 찾아보기
+   * (참고) https://stackoverflow.com/questions/34259457/how-to-encrypt-decypt-data-with-custom-anotationhibernate-in-spring-project
+   */
 //  @Encrypt
+  @Convert(converter = PasswordConverter.class)
   @Column(length=300, nullable=false)
   private String password;
   

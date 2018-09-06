@@ -2,6 +2,7 @@ package com.example.demo.controller;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.demo.dao.HelloRepository;
 import com.example.demo.domain.Car;
 import com.example.demo.domain.Hello;
+import com.example.demo.domain.Member;
 import com.google.gson.Gson;
 
 @RestController
@@ -77,5 +79,40 @@ public class HelloRestController {
   public List<Hello> list(Model model){
     List<Hello> helloList = helloDao.findAll();
     return helloList;
+  }
+  
+  private void testOptional() {
+    /**
+     * java8에서 생긴 optional 써보려고 만듦.
+     * (optional)
+     * :: 존재할 수도 있지만 안 할 수도있는 객체. 즉, null이 될 수도 있는 객체 -> 일종의 래퍼 클래스
+     * 원소가 없거나 최대 하나 밖에 없는 Collection이나 Stream으로 생각해도 좋음
+     * 
+     * :: 효과
+     * - npe를 유발할 수 있는 null을 직접 다루지 않아도 됨
+     * - 수고롭게 null체크를 직접하지 않아도 됨
+     * - 명시적으로 해당 변수가 null일 수도 있다는 가능성을 표현할 수 있음(불필요한 방어로직을 줄일 수 있음)
+     * 
+     * :: 변수명은 'maybe'나 'opt'와 같은 접두어를 붙여서 optional 타입의 변수라는 것을 좀 더 명확히 나타냄
+     */
+    
+    Member aMember = new Member();
+    
+    // null을 담고있는, optional 객체를 얻어온다. optional 내부적으로 미리 생성해놓은 싱글턴 인스턴스!!
+    Optional<Member> maybeMember1 = Optional.empty();
+    
+    // null이 아닌 객체를 담고 있는 Optional 객체를 생성한다. null이 넘어올 경우, npe를 던지기 때문에 주의해서 사용해야 함
+    Optional<Member> optMember = Optional.of(null);
+    
+    /*
+     * null인지 아닌지 확신할 수 없는 객체를 담고 있는 Optional 객체를 생성한다.
+     * Optional.empty() + Optional.ofNullable(value)를 합쳐놓은 메소드라고 생각하면 됨
+     * null이 넘어올 경우, npe를 던지지 않고 Optional.empty()와 동일하게 비어 있는 Optional 객체를 얻어온다.
+     * ==> 해당 객체가 null인지 아닌지 자신 없는 상황에서는 이 메소드를 사용할 것!
+     */
+    Optional<Member> maybeMember = Optional.ofNullable(aMember);
+    Optional<Member> maybeNotMember = Optional.ofNullable(aMember);
+    
+//    int length = Optional.ofNullable(aMember).map(String::length).orElse(0);
   }
 }

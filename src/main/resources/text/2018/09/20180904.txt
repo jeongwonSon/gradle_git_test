@@ -47,3 +47,5 @@ datasource:
 
 (EntityManagerFactory 관련 참고 글)
 https://blog.perfectacle.com/2018/01/14/jpa-entity-manager-factory/
+(batch jpa repository)
+http://javaninja.net/2017/12/spring-batch-writing-jpa-repository/
