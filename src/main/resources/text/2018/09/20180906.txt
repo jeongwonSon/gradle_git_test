@@ -1,0 +1,8 @@
+전에 error 4개 다 났던..JacksonTest.java...
+작성했던 거 까먹고 JacksonTest1.java 새로 파일 만들어서 했는데..ㅇ_ㅇ
+json 파일 새로 추가도 안해놓고, 경로가 어디 위치해야하는 지 몰라서 한참 헤맴..!
+/resources/~  하단에 위치해야 json파일이 잘 읽혀져서 나옴!
+
+
+(자바 prperties 테스트)
+https://jdm.kr/blog/215
