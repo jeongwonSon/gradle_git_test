@@ -3,7 +3,9 @@ package com.example.demo.common.util;
 import java.security.Key;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.crypto.Cipher;
@@ -43,10 +45,10 @@ public class CryptoUtil {
    * 18byte
    */
   private String aesKey;
-  private static String aes_key;
+  private static String aes_key = "esbopStormBellins";
 
   private String aesIv;
-  private static String aes_iv;
+  private static String aes_iv = "esbop.co.kr";
 
   /**
    * CHIPER_DES 암호화 키
@@ -54,7 +56,7 @@ public class CryptoUtil {
    */
   private String desKey;
 
-  private static String des_key;
+  private static String des_key = "kis_des_crypto";
 
   /**
    * DESede 암호화 키
@@ -135,6 +137,20 @@ public class CryptoUtil {
   public static String encryptAES(String encrypted) throws Exception {
       return encryptChiper(CHIPER_AES, encrypted);
   }
+  
+  public static List<String> encryptAESList(List<String> encrypted) throws Exception {
+    List<String> list = new ArrayList<String>();
+    encrypted.forEach(e->{
+      try {
+        list.add(encryptChiper(CHIPER_AES, e));
+      } catch (Exception e1) {
+        // TODO Auto-generated catch block
+        e1.printStackTrace();
+      }
+    });
+    return list;
+}
+
 
   /**
    * CHIPER_AES 방식의 복호화
