@@ -15,7 +15,7 @@ public class HealthbellDataEncrypt {
   public static void main(String[] args) throws Exception {
     // 파일명으로 BufferedReader를 만든다.
     
-    String file = "E:\\gradle_test\\gradle_git_test\\src\\main\\resources\\salesmanNm.txt";
+    String file = "E:\\gradle_test\\gradle_git_test\\src\\main\\resources\\20181023.txt";
     BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(file),"utf-8"));
     br.lines().filter(e->{
       if(e != null && e.split(",").length >= 1) {

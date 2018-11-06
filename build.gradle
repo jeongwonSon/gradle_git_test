@@ -51,6 +51,9 @@ dependencies {
 	compile("org.springframework.boot:spring-boot-starter-jdbc")
 	compile("com.h2database:h2")
 	
+	// lombok
+	compile("org.projectlombok:lombok:1.16.6")
+	
 	// test compile :: 추가로 Spring test, Junit, Hamcrest, Mockito 모두 사용 가능
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 //	testCompile('org.springframework.security:spring-security-test')
