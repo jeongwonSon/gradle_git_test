@@ -20,14 +20,14 @@ public class CsvReadUtils {
     String file = "test.csv";
     BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(file),"utf-8"));
     br.lines().filter(e->{
-      if(e != null && e.split(",").length >= 1) {
+      if (e != null && e.split(",").length >= 1) {
         return true;
       }
       return false;
     })
     
     // 필터를 통과한 라인들을 순회하며 출력하고 (,)를 기준으로 해서 리스트 객체로 만든다.
-    .forEach(e->{
+    .forEach (e->{
       System.out.println(e);
       List<String> token = Arrays.asList(e.split(","));
     });
