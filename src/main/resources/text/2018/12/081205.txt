@@ -1,0 +1,19 @@
+<preparedStatement와 statement 비교>
+
+(참고 : http://devbox.tistory.com/entry/Comporison)
+
+api를 이용해서 약 10만건의 데이터를 마이그레이션 해야한다면..?!
+케이스마다 다르겠지만 jdbc addBatch()를 이용해서 하셨다고 함, preparedStatement 를 이용한다.
+mybatis는 대용량 처리는 부적합함. 프로그램을 이용해서 처리하는 것이 좋음
+(참고 : http://fruitdev.tistory.com/111)
+
+mybatis를 이용하지 않고 코드내에 direct로 DB 접속하여 insert 하는 방법이 속도는 빠르지만, 
+더 빠르게 처리하기 위해서 PrepareStatment에서 제공하는 addBatch를 사용!
+쿼리 실행을 하지 않고 쿼리 구문을 메모리에 올려뒀다가, 실행 명령이 있으면 한번에 db쪽으로 쿼리를 날림
+매번 쿼리를 실행할 때 왔다갔다해야하는 통신 리소스라던지, 쿼리가 실행된 후 실행결과를 받는 자바
+프로그램단계 없이 한번에 여러 건을 실행시키니 속도가 빠름!
+
+*  preparedStatement와 statement 의 큰 차이점은 캐시(cache) 사용 여부이다
+
+
+** 연습문제 3개 더 추가함

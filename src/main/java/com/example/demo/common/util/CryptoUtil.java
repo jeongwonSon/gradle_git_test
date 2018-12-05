@@ -336,7 +336,7 @@ public class CryptoUtil {
       try {
           digest = MessageDigest.getInstance(algorithm);
       } catch (NoSuchAlgorithmException e) {
-          log.error("biz.exception.system.noSuchAlgorithm", e);
+          log.error("알고리즘 에러", e);
       }
 
       if(value == null) {

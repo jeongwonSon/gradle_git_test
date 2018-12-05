@@ -23,5 +23,4 @@ public class PositionNumber {
     }
     System.out.println(point);
   }
-
 }
