@@ -30,6 +30,12 @@ public class BoxArragement {
       x = Arrays.copyOf(x, x.length+1);
       y = Arrays.copyOf(y, y.length+1);
       
+      /*
+       * copyOf() 메소드 : 전달받은 배열의 특정 길이만큼을 새로운 배열로 복사하여 반환함
+       * 첫번째 매개변수는 원본배열을 전달받고, 두번째 매개변수는 원본 배열에서 새로운 배열로
+       * 복사할 요소의 개수를 전달받는다. 
+       *  
+       */
       if(x[count] == -1) {
         x = Arrays.copyOf(x, x.length-2);
         y = Arrays.copyOf(y, y.length-2);
