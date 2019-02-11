@@ -1,6 +1,6 @@
 buildscript {
 	ext {
-		springBootVersion = '2.0.1.RELEASE'
+		springBootVersion = '2.1.2.RELEASE'
 	}
 	repositories {
 		mavenCentral()
@@ -30,6 +30,8 @@ configurations {
 }
 
 dependencies {
+	// webflux 관련
+	implementation 'org.springframework.boot:spring-boot-starter-webflux'
 	compile('org.springframework.boot:spring-boot-starter-aop')
 	// 캐시관련 설정을 편리하게 지원해주는 패키지(cacheManager, EhCacheManagerFactoryBean 등의 bean 생성을 직접 안해도 됨)
 	compile('org.springframework.boot:spring-boot-starter-cache')

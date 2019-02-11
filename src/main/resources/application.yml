@@ -79,6 +79,14 @@ logging:
     org.springFramework.web : debug
     com.example.demo : info
     
+#openAPI kakao Test
+kakao:
+   openapi:
+      book:
+         url: https://dapi.kakao.com/v3/search/book
+      translation:
+         url: https://kapi.kakao.com/v1/translation/translate
+      authorization:
 
 # 해당하는 부분은 ThymeleafConfig.java에 추가함
 #spring:

@@ -45,7 +45,8 @@ public class CryptoUtil {
    * 18byte
    */
   private String aesKey;
-  private static String aes_key = "esbopStormBellins";
+//  private static String aes_key = "esbopStormBellins";
+  private static String aes_key = "stormEsbopPackage";
 
   private String aesIv;
   private static String aes_iv = "esbop.co.kr";
