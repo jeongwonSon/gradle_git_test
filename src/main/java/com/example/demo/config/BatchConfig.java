@@ -12,7 +12,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration // @bean 설정등 spring 환경설정
-@EnableBatchProcessing  // 배치기능 활성화 
+@EnableBatchProcessing  // 배치기능 활성화
 // 배치 사용 환경 설정 :: 사용자는 컨텍스트에서 Bean으로 DataSource를 제공해야하며 그렇지 않으면 BatchConfigurer를
 // 구성 클래스 자체에 구현해야합니다. 해당경우 MapJobRepositoryFactoryBean 추가함
 public class BatchConfig extends DefaultBatchConfigurer{
@@ -27,8 +27,9 @@ public class BatchConfig extends DefaultBatchConfigurer{
     return new ResourcelessTransactionManager();
   }
 
-  @Bean // 비 영구적 인 메모리 DAO 구현을 사용하여 SimpleJobRepository의 생성을 자동화하는 FactoryBean 메타데이터를
-        // 기록하고 싶지 않다면, 메모리에 메타데이터를 저장할
+  // 비 영구적 인 메모리 DAO 구현을 사용하여 SimpleJobRepository의 생성을 자동화하는 FactoryBean 메타데이터를
+  //기록하고 싶지 않다면, 메모리에 메타데이터를 저장할
+  @Bean 
   public MapJobRepositoryFactoryBean mapJobRepositoryFactory(ResourcelessTransactionManager txManager)
       throws Exception {
     MapJobRepositoryFactoryBean factory = new MapJobRepositoryFactoryBean(txManager);

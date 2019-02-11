@@ -7,6 +7,8 @@ demo:
 spring:
   banner:
     location: banner.txt
+  main:
+     allow-bean-definition-overriding: true
 # 기본적으로 배치 작업은 응용 프로그램을 시작할 때 즉시 실행된다. 자동 실행 기능을 비활성화 해야한다.
   batch:
     initialize-schema: embedded
@@ -86,7 +88,7 @@ kakao:
          url: https://dapi.kakao.com/v3/search/book
       translation:
          url: https://kapi.kakao.com/v1/translation/translate
-      authorization:
+      authorization: f9145a7c42a964b31f4af6dacf33416b
 
 # 해당하는 부분은 ThymeleafConfig.java에 추가함
 #spring:
