@@ -10,6 +10,7 @@ spring:
     location: banner.txt
   main:
      allow-bean-definition-overriding: true
+
 # 기본적으로 배치 작업은 응용 프로그램을 시작할 때 즉시 실행된다. 자동 실행 기능을 비활성화 해야한다.
   batch:
     initialize-schema: embedded
@@ -18,6 +19,7 @@ spring:
   output:
     ansi:
       enabled: always
+
 # jpa 설정
   jpa:
     database: h2
@@ -25,7 +27,7 @@ spring:
     hibernate:
       ddl-auto:  update
     show-sql: true
-      
+
   datasource:
     driver-class-name: org.h2.Driver
 #    url: jdbc:h2:mem:test;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
@@ -78,9 +80,10 @@ server:
 
 logging:
   level:
-    root: debug
+    root: info
     org.springFramework.web : debug
     com.example.demo : debug
+    com.example.openAPI : debug
     
 #openAPI kakao Test
 kakao:

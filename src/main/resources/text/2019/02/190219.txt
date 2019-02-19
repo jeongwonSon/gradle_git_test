@@ -1,0 +1,32 @@
+https://supawer0728.github.io/2018/04/07/spring-boot-logging/
+
+application.yml log level 변경
+debug로 해둘 경우 너무 불필요한 정보가 많이 보이기 때문에 -> info로 바꾸고
+com.example.demo : debug
+com.example.openAPI : debug
+하단으로만 레벨을 변경함
+
+-----
+[yaml 파일 사용법]
+리스트로 표현하고자 할 때는 "-" 대쉬로 표현 함
+profile을 지정해서 환경에 따라 다르게 설정 가능
+여러 개 설정파일 쓰는 듯 구분 가능  "---" 씀
+
+단점이라고 할 수 있는 건 문법이 엄격하다.
+하위 계층 표현할 때 tab들여쓰기가 아닌 공백 문자를 써야한다.
+콜론 다음에 공백 한 칸이 있어야 한다.
+
+(참고) https://jeong-pro.tistory.com/159
+
+-----
+일기장 앱 만들기
+
+그대로 했는데 JournalRepository 에 .save 시킨 값들이 들어가지 않는다.
+내일 해결하기
+http://localhost:8085/journal
+http://localhost:8085/
+
+${journal}에 값이 들어가지 않음ㅠㅠ
+
+
+(참고) https://jeong-pro.tistory.com/130?category=793489
