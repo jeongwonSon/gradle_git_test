@@ -6,6 +6,7 @@ demo:
 # ThymeleafConfig에 이미 설정해놓음
 spring:
   banner:
+#    location: banner_sjw.txt
     location: banner.txt
   main:
      allow-bean-definition-overriding: true
@@ -77,9 +78,9 @@ server:
 
 logging:
   level:
-    root: warn
+    root: debug
     org.springFramework.web : debug
-    com.example.demo : info
+    com.example.demo : debug
     
 #openAPI kakao Test
 kakao:

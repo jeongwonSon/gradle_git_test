@@ -1,9 +1,9 @@
 package com.example.demo.domain;
 
-import javax.persistence.Entity;
+import lombok.Data;
 
-//@Data
-@Entity
+@Data
+//@Entity
 public class Employee {
   
   private Long id;

@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  */
 //@SpringBootApplication(exclude={DataSourceAutoConfiguration.class})
 @SpringBootApplication
-@ComponentScan(basePackages="com.example.demo")
+@ComponentScan(basePackages="com.example")
 public class GradleGitTestApplication {
 	
 	private static Logger logger = LoggerFactory.getLogger(GradleGitTestApplication.class);

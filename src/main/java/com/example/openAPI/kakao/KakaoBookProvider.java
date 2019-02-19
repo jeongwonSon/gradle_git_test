@@ -1,9 +1,13 @@
 package com.example.openAPI.kakao;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.client.WebClient;
+
+import com.example.demo.GradleGitTestApplication;
 
 import reactor.core.publisher.Mono;
 
@@ -12,6 +16,8 @@ import reactor.core.publisher.Mono;
  */
 @Component
 public class KakaoBookProvider implements BookUseCase{
+  
+  private static Logger logger = LoggerFactory.getLogger(KakaoBookProvider.class);
   
   @Value("${kakao.openapi.book.url}")
   private String kakaoOpenApiBookUrl;
@@ -27,6 +33,8 @@ public class KakaoBookProvider implements BookUseCase{
      * 최종 리턴 값을 Mono로 전달하면서 ResponseKakaoBook class에 데이터를 매핑함
      * 리턴 타입은 Mono<ResponseKakaoBook>이다.
      */
+    logger.debug("kakao book search --------------####### {}", query);
+    
     return WebClient.create(kakaoOpenApiBookUrl)
         .method(HttpMethod.GET)
         .uri("?query=" + query)
