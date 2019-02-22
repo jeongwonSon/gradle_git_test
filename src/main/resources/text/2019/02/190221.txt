@@ -1,0 +1,15 @@
+spring boot + devtools 설정
+
+devtools 모듈은 프로젝트에 포함되어 개발 시간 기능을 추가로 제공함
+개발도구 지원을 포함하기 위해 간단히 빌드에 모듈 의존성을 추가
+
+
+livereload기능을 사용하기 위해서는 chrome, firefox, safari 용 플러그인을 설치해야 함
+devtools 관련 doc
+https://spring.io/blog/2015/06/17/devtools-in-spring-boot-1-3
+(참고) https://haviyj.tistory.com/11
+
+
+-----------
+https://cheese10yun.github.io/spring-guide-exception/
+spring exception 가이드
