@@ -1,9 +1,8 @@
 package com.example.demo.config;
 
+import com.example.demo.GradleGitTestApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
-
-import com.example.demo.GradleGitTestApplication;
 
 /**
  *  spring boot로 웹 어플리케이션을 만들고 WAR로 배포할때, springBootServletInitializer를 상속하도록 가이드 함.

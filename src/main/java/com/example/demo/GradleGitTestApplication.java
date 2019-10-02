@@ -1,5 +1,7 @@
 package com.example.demo;
 
+import com.example.demo.domain.Journal;
+import com.example.demo.service.JournalRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.InitializingBean;
@@ -8,9 +10,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Controller;
-
-import com.example.demo.domain.Journal;
-import com.example.demo.service.JournalRepository;
 
 @Controller
 /*

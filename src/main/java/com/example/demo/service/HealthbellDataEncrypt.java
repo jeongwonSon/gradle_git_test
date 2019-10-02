@@ -1,14 +1,12 @@
 package com.example.demo.service;
 
+import com.example.demo.common.util.CryptoUtil;
+
 import java.io.BufferedReader;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.InputStreamReader;
-import java.io.UnsupportedEncodingException;
 import java.util.Arrays;
 import java.util.List;
-
-import com.example.demo.common.util.CryptoUtil;
 
 public class HealthbellDataEncrypt {
   
@@ -18,10 +16,11 @@ public class HealthbellDataEncrypt {
     // thinkware 관리자nm -> 암호화 키 변경됨
     // WCtxZIq1yblHzogdzioVMg==
     // 관리자 , B1KsWDsJUrIsmvSYDZoSaQ==
-//    String file = "E:\\gradle_test\\gradle_git_test\\src\\main\\resources\\store3.txt";
-    String file = "관리자";
-    System.out.println(file + " , " + CryptoUtil.encryptAES(file));
-    /*BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(file),"utf-8"));
+    String file = "E:\\gradle_test\\gradle_git_test\\src\\main\\resources\\ilshinHolderNm.txt";
+//    String file = "E:\\gradle_test\\gradle_git_test\\src\\main\\resources\\salemanNm.txt";
+//    System.out.println(file + " , " + CryptoUtil.encryptAES(file));
+//    System.out.println(file + " , " + CryptoUtil.decryptAES(file));
+    BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(file),"utf-8"));
     br.lines().filter(e->{
       if(e != null && e.split(",").length >= 1) {
         return true;
@@ -35,13 +34,13 @@ public class HealthbellDataEncrypt {
       List<String> token = Arrays.asList(e.split("\\r\\n"));  // 빈칸으로 끊음
       token.forEach(num->{
         try {
-          System.out.println(num + " , " + CryptoUtil.encryptAES(num));
+          System.out.println(num + " , " + CryptoUtil.decryptAES(num));
 //          System.out.println(CryptoUtil.encryptAES(num));
         } catch (Exception e1) {
           // TODO Auto-generated catch block
           e1.printStackTrace();
         }
       });
-    });*/
+    });
   }
 }

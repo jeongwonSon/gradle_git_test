@@ -1,12 +1,11 @@
 package com.example.demo.dao;
 
-import java.util.List;
-
+import com.example.demo.domain.Member;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
-import com.example.demo.domain.Member;
+import java.util.List;
 
 /**
  * - 메소드 이름 기반으로 해서 만들어도 되고, @Query를 이용해 기존의 SQL처럼 만들어도 됨

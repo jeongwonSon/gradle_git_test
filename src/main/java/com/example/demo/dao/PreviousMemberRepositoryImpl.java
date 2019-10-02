@@ -1,12 +1,11 @@
 package com.example.demo.dao;
 
+import com.example.demo.domain.PreviousMember;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Repository;
-
-import com.example.demo.domain.PreviousMember;
 
 /*
  * 한 번 조회할 때마다 2초 이상의 시간이 필요하다고 가정한 뒤,

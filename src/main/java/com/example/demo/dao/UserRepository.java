@@ -1,8 +1,7 @@
 package com.example.demo.dao;
 
-import org.springframework.data.jpa.repository.JpaRepository;
-
 import com.example.demo.domain.User;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 /*
  * JpaRepository를 상속받는 것만으로도 기본적인 CRUD가 가능함.

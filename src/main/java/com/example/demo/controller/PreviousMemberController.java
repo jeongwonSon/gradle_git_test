@@ -1,5 +1,7 @@
 package com.example.demo.controller;
 
+import com.example.demo.dao.PreviousMemberRepository;
+import com.example.demo.domain.PreviousMember;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,9 +10,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.ResponseBody;
-
-import com.example.demo.dao.PreviousMemberRepository;
-import com.example.demo.domain.PreviousMember;
 
 @Controller
 @EnableCaching	// 어노테이션을 이용한 캐시기능을 사용하겠다는 선언

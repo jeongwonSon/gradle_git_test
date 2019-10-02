@@ -1,7 +1,7 @@
 package com.example.demo.controller;
 
-import java.util.List;
-
+import com.example.demo.domain.Journal;
+import com.example.demo.service.JournalRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,8 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.example.demo.domain.Journal;
-import com.example.demo.service.JournalRepository;
+import java.util.List;
 
 @Controller
 public class JournalController {

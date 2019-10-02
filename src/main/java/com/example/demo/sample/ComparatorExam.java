@@ -1,12 +1,12 @@
 package com.example.demo.sample;
 
+import com.example.demo.domain.Employee01;
+
 import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
-
-import com.example.demo.domain.Employee01;
 
 public class ComparatorExam {
 

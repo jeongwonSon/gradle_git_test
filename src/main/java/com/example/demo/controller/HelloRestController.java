@@ -1,20 +1,19 @@
 package com.example.demo.controller;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
-
+import com.example.demo.dao.HelloRepository;
+import com.example.demo.domain.Car;
+import com.example.demo.domain.Hello;
+import com.example.demo.domain.Member;
+import com.google.gson.Gson;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.demo.dao.HelloRepository;
-import com.example.demo.domain.Car;
-import com.example.demo.domain.Hello;
-import com.example.demo.domain.Member;
-import com.google.gson.Gson;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
 
 @RestController
 public class HelloRestController {

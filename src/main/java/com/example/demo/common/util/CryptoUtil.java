@@ -1,11 +1,8 @@
 package com.example.demo.common.util;
 
-import java.security.Key;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import org.apache.tomcat.util.codec.binary.Base64;
+import org.slf4j.Logger;
+import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
 import javax.crypto.Cipher;
@@ -14,10 +11,12 @@ import javax.crypto.spec.DESKeySpec;
 import javax.crypto.spec.DESedeKeySpec;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
-
-import org.apache.tomcat.util.codec.binary.Base64;
-import org.slf4j.Logger;
-import org.springframework.stereotype.Component;
+import java.security.Key;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 @Component
 public class CryptoUtil {
@@ -46,10 +45,12 @@ public class CryptoUtil {
    */
   private String aesKey;
 //  private static String aes_key = "esbopStormBellins";
-  private static String aes_key = "stormEsbopPackage";
+//  private static String aes_key = "stormEsbopPackage";
+  private static String aes_key = "ilshinvitsonmall";
 
   private String aesIv;
-  private static String aes_iv = "esbop.co.kr";
+//  private static String aes_iv = "esbop.co.kr";
+  private static String aes_iv = "1234567890";
 
   /**
    * CHIPER_DES 암호화 키

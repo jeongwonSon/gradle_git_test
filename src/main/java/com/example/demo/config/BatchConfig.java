@@ -1,7 +1,5 @@
 package com.example.demo.config;
 
-import javax.sql.DataSource;
-
 import org.springframework.batch.core.configuration.annotation.DefaultBatchConfigurer;
 import org.springframework.batch.core.configuration.annotation.EnableBatchProcessing;
 import org.springframework.batch.core.launch.support.SimpleJobLauncher;
@@ -10,6 +8,8 @@ import org.springframework.batch.core.repository.support.MapJobRepositoryFactory
 import org.springframework.batch.support.transaction.ResourcelessTransactionManager;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+
+import javax.sql.DataSource;
 
 @Configuration // @bean 설정등 spring 환경설정
 @EnableBatchProcessing  // 배치기능 활성화

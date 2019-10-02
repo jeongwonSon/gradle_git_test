@@ -1,11 +1,11 @@
 package com.example.demo.sample;
 
+import com.example.demo.domain.Employee01;
+
 import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-
-import com.example.demo.domain.Employee01;
 
 /**
  * Comparable은 객체 간의 정렬에 있어서 오름차순, 내림차순등의 일반적인 순서를

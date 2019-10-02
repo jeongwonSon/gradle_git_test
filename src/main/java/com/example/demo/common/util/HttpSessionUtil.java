@@ -1,8 +1,8 @@
 package com.example.demo.common.util;
 
-import javax.servlet.http.HttpSession;
-
 import com.example.demo.domain.User;
+
+import javax.servlet.http.HttpSession;
 
 /**
  * 

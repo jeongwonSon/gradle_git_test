@@ -2,8 +2,6 @@ package com.example.algorithms.easy;
 
 import java.util.Scanner;
 
-import org.h2.engine.SysProperties;
-
 /**
  * 로또 번호 일치 확인
  * @author jwson
